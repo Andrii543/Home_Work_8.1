@@ -99,71 +99,76 @@ namespace Home_Work_8._1
 
             #region 4 Завдання
 
-            //var rnd = new Random();
+            var rnd = new Random();
 
-            //const int size = 5;
+            const int size = 5;
 
-            //int[,] array = new int[size, size];
+            int[,] array = new int[size, size];
 
-            //array[0, 0] = rnd.Next(0, 100);
+            int maxValue = 0, minValue = 0;
+            int maxRow = 0, maxCol = 0, minRow = 0, minCol = 0;
 
-            //int maxValue = array[0,0], minValue = array[0, 0];
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    array[i, j] = rnd.Next(0, 100);
 
-            //int maxRow = 0, maxCol =0, minRow = 0, minCol = 0;
+                    if (i == 0 && j == 0)
+                    {
+                        maxValue = minValue = array[i, j];
+                        maxRow = minRow = i + 1;
+                        maxCol = minCol = j + 1;
+                    }
+                    else
+                    {
 
-            //for (int i = 0; i < size; i++)
-            //{
-            //    for (int j = 0; j < size; j++)
-            //    {
-            //        if(i != 0 || j != 0)
-            //        {
-            //            array[i,j] = rnd.Next(0, 100);
-            //        }
+                        if (array[i, j] > maxValue)
+                        {
+                            maxValue = array[i, j];
+                            maxRow = i + 1; maxCol = j + 1;
+                        }
 
-            //        if (array[i, j] > maxValue)
-            //        {
-            //            maxValue = array[i,j];
-            //            maxRow = i+1; maxCol = j+1;
-            //        }
+                        if (array[i, j] < minValue)
+                        {
+                            minValue = array[i, j];
+                            minRow = i + 1; minCol = j + 1;
+                        }
+                    }
 
-            //        if (array[i,j] < minValue)
-            //        {
-            //            minValue = array[i,j];
-            //            minRow = i+1; minCol = j+1;
-            //        }
+                    Console.Write($"{array[i, j]}  ");
+                }
 
-            //        Console.Write($"{array[i, j]}  ");
-            //    }
+                Console.WriteLine();
+            }
 
-            //    Console.WriteLine();
-            //}
+            Console.WriteLine($"Максимальне число {maxValue} координати: Стовпчик {maxRow} Рядок {maxCol}");
+            Console.WriteLine($"Мінімальне число {minValue} координати: Стовпчик {minRow} Рядок {minCol}");
 
-            //Console.WriteLine($"Mаксимальне число {maxValue} координати: Стовпчик {maxRow} Рядок {maxCol} ");
-            //Console.WriteLine($"Мінімальне число {minValue} координати: Стовпчик {minRow} Рядок {minCol} ");
 
             #endregion
 
 
             #region 5 Завдання 
 
-            Console.Write("Введіть число дня для відображення ");
+            //Console.Write("Введіть число дня для відображення ");
 
-            int userInput = Convert.ToInt32(Console.ReadLine());
+            //int userInput = Convert.ToInt32(Console.ReadLine());
 
-            // Понеділок починається від 1, 0 немає
-            if (userInput == 0)
-            {
-                Console.WriteLine("Дні тижня задаються від 1");
-            }
-            else
-            {
-                int offset = userInput % 7;
-                Days resultDays = (Days)((int)Days.Monday + offset - 1); // (Days)((int)Days.Monday + offset) для зміщення днів, -1 для коректного виводу
+            //// Понеділок починається від 1, 0 немає
+            //if (userInput == 0)
+            //{
+            //    Console.WriteLine("Дні тижня задаються від 1");
+            //}
+            //else
+            //{
+            //    int offset = userInput % 7;
+            //    Days resultDays = (Days)((int)Days.Monday + offset - 1); // (Days)((int)Days.Monday + offset) для зміщення днів, -1 для коректного виводу
 
-                Console.WriteLine($"{resultDays}");
-            }
-            
-            
+            //    Console.WriteLine($"{resultDays}");
+            //}
+
+
 
             #endregion
 
